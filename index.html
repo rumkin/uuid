@@ -1,0 +1,107 @@
+<html>
+    <head>
+        <title>
+           UUID Generator
+        </title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+            <style>html {
+  font-family: sans-serif; }
+
+html, body {
+  min-height: 100%; }
+
+.fullheight {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column; }
+  .fullheight-top, .fullheight-bottom {
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding: 15px; }
+  .fullheight-body {
+    flex-grow: 1;
+    padding: 15px; }
+
+.app {
+  background-color: #eee; }
+  .app-title {
+    font-size: 18px;
+    color: #999;
+    line-height: 30px; }
+  .app-footer {
+    color: #999;
+    line-height: 30px; }
+
+.uuid-bumper {
+  height: 150px; }
+</style>
+            <link rel="stylesheet" href="/components/bootstrap/dist/css/bootstrap.css"/>
+    </head>
+    <body>
+        <div class="fullheight app">
+    <header class="fullheight-top app-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-11">
+                    <h1 class="app-title">
+                        UUID Generator
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="fullheight-body app-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="uuid-bumper">
+                        
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="input-group">
+                                <input class="form-control" al-model="id" aria-label="Text input with multiple buttons">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default" aria-label="Help" @clicl="copy(id)">
+                                        Copy
+                                    </button>
+                                    <button type="button" class="btn btn-default" @click="id = uuid()">Generate</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <iframe src="https://ghbtns.com/github-btn.html?user=rumkin&amp;repo=uuid&amp;type=star&amp;count=false&amp;size=large" frameborder="0" scrolling="0" width="76px" height="30px"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="fullheight-bottom app-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    Crafted by <a href="https://github.com/rumkin">Rumkin</a> in 2017.
+                    Built with <a href="https://github.com/broofa/node-uuid">node-uuid</a> and <a href="https://github.com/lgarron/clipboard.js">clipboard.js</a>.
+                    Source at <a href="https://github.com/rumkin/uuid">Github</a>.
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.7/uuid.min.js"></script>
+            <script src="http://angularlight.org/bin/alight_0.12.last.debug.js"></script>
+            <script src="https://unpkg.com/clipboard-js/clipboard.min.js"></script>
+            <script>;(function(){
+    'use strict';
+    
+	alight.bootstrap('body', {
+	    $el: 'body',
+	    id: uuid(),
+	    uuid,
+	    copy: clipboard.copy,
+	});
+})();</script>
+    </body>
+</html>
