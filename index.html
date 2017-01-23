@@ -60,12 +60,12 @@ html, body {
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="input-group">
-                                <input class="form-control" al-model="id" aria-label="Text input with multiple buttons">
+                                <input class="form-control" al-model="id" aria-label="UUID">
                                 <div class="input-group-btn">
-                                    <button type="button" class="btn btn-default" aria-label="Help" @clicl="copy(id)">
+                                    <button type="button" class="btn btn-default" aria-label="Copy" @click="copy(id)">
                                         Copy
                                     </button>
-                                    <button type="button" class="btn btn-default" @click="id = uuid()">Generate</button>
+                                    <button type="button" class="btn btn-default" aria-label="Generate" @click="id = uuid()">Generate</button>
                                 </div>
                             </div>
                         </div>
