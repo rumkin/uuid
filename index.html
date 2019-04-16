@@ -46,6 +46,9 @@ html, body {
                         UUID Generator
                     </h1>
                 </div>
+                <div class="col-1">
+                  <img src="https://unpkg.com/simple-icons@latest/icons/github.svg" width="18"/>
+                </div>
             </div>
         </div>
     </header>
@@ -54,23 +57,20 @@ html, body {
             <div class="row">
                 <div class="col-sm-12">
                     <div class="uuid-bumper">
-                        
+
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="input-group">
-                                <input class="form-control" al-model="id" aria-label="UUID">
+                                <input class="form-control" aria-label="UUID" id="uuidField">
                                 <div class="input-group-btn">
-                                    <button type="button" class="btn btn-default" aria-label="Copy" @click="copy(id)">
+                                    <button type="button" class="btn btn-default" aria-label="Copy" id="copyBtn">
                                         Copy
                                     </button>
-                                    <button type="button" class="btn btn-default" aria-label="Generate" @click="id = uuid()">Generate</button>
+                                    <button type="button" class="btn btn-default" aria-label="Generate" id="genBtn">Generate</button>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="text-right">
-                        <iframe src="https://ghbtns.com/github-btn.html?user=rumkin&amp;repo=uuid&amp;type=star&amp;count=false&amp;size=large" frameborder="0" scrolling="0" width="76px" height="30px"></iframe>
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@ html, body {
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    Crafted by <a href="https://rumk.in">Rumkin</a> in 2017.
+                    &copy; <a href="https://rumk.in">Rumkin</a>.
                     Built with <a href="https://github.com/broofa/node-uuid">node-uuid</a> and <a href="https://github.com/lgarron/clipboard.js">clipboard.js</a>.
                     Source at <a href="https://github.com/rumkin/uuid">Github</a>.
                 </div>
@@ -89,46 +89,17 @@ html, body {
     </footer>
 </div>
 
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.7/uuid.min.js" type="text/javascript" language="javascript"></script>
-            <script src="https://unpkg.com/clipboard-js/clipboard.min.js" type="text/javascript" language="javascript"></script>
-            <script src="https://angularlight.org/bin/alight_0.12.last.debug.js" type="text/javascript" language="javascript"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/node-uuid/1.4.8/uuid.min.js" integrity="sha384-ojT96dIkO5uDUptuYUBcwQK3flLsTlH0IH2eqFDFzvsvyWu+Uj6z6kjaCUzanmkf" crossorigin="anonymous"></script>
+            <script src="https://unpkg.com/clipboard-js@0.3.6/clipboard.min.js" integrity="sha384-caNHltbx6pZaWhR2rusYig08Lg3BmATholu6q645fU3cSOon+mh0cLCURifbecHg" crossorigin="anonymous"></script>
             <script>;(function(){
-    'use strict';
-    
-	alight.bootstrap('body', {
-	    $el: 'body',
-	    id: uuid(),
-	    uuid,
-	    copy: clipboard.copy,
-	});
-})();</script>
-    <!-- Yandex.Metrika counter -->
-	<script type="text/javascript">
-	    (function (d, w, c) {
-		(w[c] = w[c] || []).push(function() {
-		    try {
-			w.yaCounter42337764 = new Ya.Metrika({
-			    id:42337764,
-			    clickmap:true,
-			    trackLinks:true,
-			    accurateTrackBounce:true
-			});
-		    } catch(e) { }
-		});
-
-		var n = d.getElementsByTagName("script")[0],
-		    s = d.createElement("script"),
-		    f = function () { n.parentNode.insertBefore(s, n); };
-		s.type = "text/javascript";
-		s.async = true;
-		s.src = "https://mc.yandex.ru/metrika/watch.js";
-
-		if (w.opera == "[object Opera]") {
-		    d.addEventListener("DOMContentLoaded", f, false);
-		} else { f(); }
-	    })(document, window, "yandex_metrika_callbacks");
-	</script>
-	<noscript><div><img src="https://mc.yandex.ru/watch/42337764" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-	<!-- /Yandex.Metrika counter -->
+              var text = document.getElementById('uuidField')
+              text.value = uuid();
+              document.getElementById('copyBtn').addEventListener('click', function() {
+                copy(text.value)
+              })
+              document.getElementById('genBtn').addEventListener('click', function() {
+                text.value = uuid()
+              })
+            })();</script>
     </body>
 </html>
