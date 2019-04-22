@@ -3,7 +3,7 @@
         <title>
            UUID Generator
         </title>
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
             <style>html {
   font-family: sans-serif; }
 
@@ -20,22 +20,26 @@ html, body {
     padding: 15px; }
   .fullheight-body {
     flex-grow: 1;
-    padding: 15px; }
+    padding: 15px;
+    display: flex;
+
+    align-items: center;
+    justify-content: center; }
 
 .app {
   background-color: #eee; }
   .app-title {
     font-size: 18px;
-    color: #999;
-    line-height: 30px; }
+    color: #999; }
   .app-footer {
     color: #999;
     line-height: 30px; }
 
-.uuid-bumper {
-  height: 150px; }
-#uuidField {
-  font-family: monospace;
+
+@media (min-height: 300px) {
+  .uuidForm {
+    margin-bottom: 2em;
+  }
 }
 </style>
     </head>
@@ -44,12 +48,12 @@ html, body {
     <header class="fullheight-top app-header">
         <div class="container">
             <div class="row">
-                <div class="col-sm-11">
+                <div class="col-6">
                     <h1 class="app-title">
                         UUID Generator
                     </h1>
                 </div>
-                <div class="col-1">
+                <div class="col-6 text-right">
                   <img src="https://unpkg.com/simple-icons@latest/icons/github.svg" width="18"/>
                 </div>
             </div>
@@ -59,18 +63,15 @@ html, body {
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="uuid-bumper">
-
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-body">
+                    <div class="card uuidForm">
+                        <div class="card-body">
                             <div class="input-group">
-                                <input class="form-control" aria-label="UUID" id="uuidField">
-                                <div class="input-group-btn">
-                                    <button type="button" class="btn btn-default" aria-label="Copy" id="copyBtn">
+                                <input class="form-control" aria-label="Generated UUID" id="uuidField">
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-outline-secondary" aria-label="Copy" id="copyBtn">
                                         Copy
                                     </button>
-                                    <button type="button" class="btn btn-default" aria-label="Generate" id="genBtn">Generate</button>
+                                    <button type="button" class="btn btn-outline-secondary" aria-label="Generate" id="genBtn">Generate</button>
                                 </div>
                             </div>
                         </div>
@@ -82,10 +83,11 @@ html, body {
     <footer class="fullheight-bottom app-footer">
         <div class="container">
             <div class="row">
-                <div class="col-sm-12">
-                    &copy; <a href="https://rumk.in">Rumkin</a>.
+                <div class="col-sm-6">
+                    &copy; <a href="https://rumk.in">Paul Rumkin</a>.
+                </div>
+                <div class="col-sm-6 text-sm-right text-md-right text-lg-right text-xl-right">
                     Built with <a href="https://github.com/broofa/node-uuid">node-uuid</a> and <a href="https://github.com/lgarron/clipboard.js">clipboard.js</a>.
-                    Source at <a href="https://github.com/rumkin/uuid">Github</a>.
                 </div>
             </div>
         </div>
