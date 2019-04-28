@@ -33,6 +33,26 @@ html, body {
     color: #999;
     line-height: 30px; }
 
+.toaster {
+  position: fixed;
+  top: 0;
+  left: 50%;
+}
+
+.toaster-holder {
+  margin-left: -50%;
+  margin-top: 0.5em;
+}
+
+.toaster-toast {
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: 12px;
+  border-radius: 4px;
+  margin-bottom: 0.5em;
+  padding: 0.5em;
+  text-align: center;
+}
 
 @media (min-height: 300px) {
   .uuidForm {
@@ -43,6 +63,9 @@ html, body {
     </head>
     <body>
         <div class="fullheight app">
+          <div id="toaster" class="toaster">
+            <div class="toaster-holder"></div>
+          </div>
     <header class="fullheight-top app-header">
         <div class="container">
             <div class="row">
@@ -100,9 +123,28 @@ html, body {
             <script src="https://unpkg.com/clipboard-js@0.3.6/clipboard.min.js" integrity="sha384-caNHltbx6pZaWhR2rusYig08Lg3BmATholu6q645fU3cSOon+mh0cLCURifbecHg" crossorigin="anonymous"></script>
             <script>;(function(){
               var text = document.getElementById('uuidField')
+              var toaster = document.getElementById('toaster').querySelector('.toaster-holder')
+
               text.value = uuid();
+              function addToast(text, options) {
+                options = options || {}
+                var timeout = options.timeout || 1000
+
+                var toast = document.createElement('div')
+                toaster.appendChild(toast)
+                toast.className = 'toaster-toast'
+                toast.textContent = text
+
+                setTimeout(function() {
+                  toaster.removeChild(toast)
+                }, timeout)
+              }
+
               document.getElementById('copyBtn').addEventListener('click', function() {
-                copy(text.value)
+                clipboard.copy(text.value)
+                .then(() => {
+                  addToast('copied', {timeout: 1e3})
+                })
               })
               document.getElementById('genBtn').addEventListener('click', function() {
                 text.value = uuid()
