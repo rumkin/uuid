@@ -28,6 +28,8 @@ html, body {
 
   .app-title {
     font-size: 18px;
+    line-height: 24px;
+    margin: 0;
     color: #999; }
   .app-footer {
     color: #999;
@@ -83,11 +85,19 @@ html, body {
         <div class="container">
             <div class="row">
                 <div class="col-6">
-                    <h1 class="app-title">
-                        <a href="/">
-                          UUID Generator
-                        </a>
-                    </h1>
+                  <ul class="nav">
+                    <li class="nav-item">
+                      <h1 class="app-title">
+                          <a href="/" class="nav-link">
+                            UUID Generator
+                          </a>
+                      </h1>
+                    </li>
+                    <li class="nav-item">
+                      <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" class="nav-link">
+                        UUID on Wikipedia
+                      </a>
+                    </li>
                 </div>
                 <div class="col-6 text-right">
                   <a href="https://github.com/rumkin/uuid">
