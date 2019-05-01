@@ -62,6 +62,47 @@ html, body {
   animation-timing-function: ease-out;
 }
 
+.uuidGen {
+  display: flex;
+}
+
+.uuidGen-buttons {
+  flex: none;
+}
+
+@media (min-width: 768px) {
+  .uuidGen {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .uuidGen-input {
+    flex: 1;
+  }
+
+  .uuidGen-buttons {
+    margin-left: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .uuidGen {
+    flex-direction: column;
+  }
+
+  .uuidGen-buttons {
+    margin-top: 12px;
+  }
+
+  .uuidGen-input {
+    /* flex: 100%; */
+  }
+
+  /* .uuidGen-buttons > * {
+    flex: none;
+  } */
+}
+
 @keyframes toastFadeOut {
   from {
     opacity: 1;
@@ -73,10 +114,11 @@ html, body {
 }
 
 @media (min-height: 300px) {
-  .uuidForm {
+  .uuidGen {
     margin-bottom: 2em;
   }
 }
+
 </style>
     </head>
     <body>
@@ -87,7 +129,7 @@ html, body {
     <header class="fullheight-top app-header">
         <div class="container">
             <div class="row">
-                <div class="col-6">
+                <div class="col-10">
                   <ul class="nav">
                     <li class="nav-item">
                       <h1 class="app-title">
@@ -102,7 +144,7 @@ html, body {
                       </a>
                     </li>
                 </div>
-                <div class="col-6 text-right">
+                <div class="col-2 text-right">
                   <a href="https://github.com/rumkin/uuid">
                     <img src="https://unpkg.com/simple-icons@latest/icons/github.svg" width="18"/>
                   </a>
@@ -114,19 +156,20 @@ html, body {
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="card uuidForm">
-                        <div class="card-body">
-                            <div class="input-group">
-                                <input class="form-control" aria-label="Generated UUID" id="uuidField">
-                                <div class="input-group-append">
-                                    <button type="button" class="btn btn-outline-secondary" aria-label="Copy" id="copyBtn">
-                                        Copy
-                                    </button>
-                                    <button type="button" class="btn btn-outline-primary" aria-label="Generate" id="genBtn">Generate</button>
-                                </div>
-                            </div>
-                        </div>
+                  <div class="uuidGen">
+                    <div class="uuidGen-input">
+                      <input class="form-control" aria-label="Generated UUID" id="uuidField">
                     </div>
+
+                    <div class="uuidGen-buttons">
+                      <div class="btn-group">
+                          <button type="button" class="btn btn-outline-secondary" aria-label="Copy" id="copyBtn">
+                              Copy
+                          </button>
+                          <button type="button" class="btn btn-outline-primary" aria-label="Generate" id="genBtn">Generate</button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
             </div>
         </div>
