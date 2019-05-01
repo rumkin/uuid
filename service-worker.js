@@ -1,9 +1,16 @@
 self.addEventListener('install', function(event) {
   event.waitUntil(
-    caches.open('v1').then(function(cache) {
-      return cache.addAll([
-        '/index.html',
-      ])
+    caches.keys().then(function(keyList) {
+      return Promise.all(keyList.map(function(key) {
+        return caches.delete(key);
+      }));
+    })
+    .then(function() {
+      return caches.open('v1').then(function(cache) {
+        return cache.addAll([
+          '/index.html',
+        ])
+      })
     })
   )
 })

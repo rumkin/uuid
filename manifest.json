@@ -1,0 +1,18 @@
+{
+  "short_name": "UUID",
+  "name": "UUID Generator",
+  "icons": [
+    {
+      "src": "/assets/uuid-64.png",
+      "type": "image/png",
+      "sizes": "64x64"
+    },
+    {
+      "src": "/assets/uuid-256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone"
+}

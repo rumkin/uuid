@@ -3,6 +3,8 @@
         <title>
            UUID Generator
         </title>
+            <link rel="icon shortcut" type="image/png" href="/assets/uuid-64.png" />
+            <link rel="manifest" href="/manifest.json">
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
             <style>html {
   font-family: sans-serif; }
@@ -171,7 +173,7 @@ html, body {
                   addToast('copied', {timeout: 1500})
                 })
               })
-              
+
               document.getElementById('genBtn').addEventListener('click', function() {
                 text.value = uuid()
               })
