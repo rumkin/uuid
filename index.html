@@ -171,15 +171,14 @@ html, body {
                   addToast('copied', {timeout: 1500})
                 })
               })
+              
               document.getElementById('genBtn').addEventListener('click', function() {
                 text.value = uuid()
               })
 
               if ('serviceWorker' in navigator === true) {
                 navigator.serviceWorker.register('./service-worker.js')
-                .then(() => {
-                  console.log('installed')
-                }, (error) => {
+                .catch((error) => {
                   console.error(error)
                 })
               }
